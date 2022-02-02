@@ -56,22 +56,27 @@ export default {
     data() {
         return {
             email: '',
-            password: ''
+            password: '',
+            isLoading: false
             
         }
     },
     methods: {
         ...mapActions(['entrarComEmail']),
         entrar() {
-
+            this.isLoading = true
             let dado = {
                 email: this.email,
                 password: this.password
             }
             this.entrarComEmail(dado).then(() => {
                 this.$router.push({
-                    name: 'paginainicial'
+                    name: 'paginaprincipal'
                 })
+            }).catch((error)=> {
+                console.log(error);
+            }).then(()=> {
+                this.isLoading = false
             })
         }
     }

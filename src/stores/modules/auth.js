@@ -1,14 +1,14 @@
 import { firebaseAuth } from "../../config/firebaseConfig"
 
 const state = {
-    isLoggedIn: firebaseAuth().currentUser != null,
+    estaLogado: firebaseAuth().currentUser != null,
     usuario: firebaseAuth().currentUser
 }
 
 const mutations = {
-    'MUDANÇA_DE_STATUS_DE_AUTH' (state) {
-        state.isLoggedIn = firebaseAuth.currentUser != null
-        state.usuario = firebaseAuth.currentUser
+    'AUTH_STATUS_CHANGE' (state) {
+        state.estaLogado = firebaseAuth().currentUser != null
+        state.usuario = firebaseAuth().currentUser
     }
 }
 
@@ -17,11 +17,11 @@ const actions = {
 }
 
 const getters = {
-    isLoggedIn: (state) => {
-        return state.isLoggedIn
+    estaLogado: (state) => {
+        return state.estaLogado
     },
-    AtualUsuario: (state) => {
-        if(state && state.usuario) {
+    atualUsuario: (state) => {
+        if (state && state.usuario) {
             return {
                 email: state.usuario.email,
                 emailVerified: state.usuario.emailVerified,

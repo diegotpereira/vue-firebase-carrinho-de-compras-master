@@ -11,20 +11,20 @@
         aria-controls="navbarTop"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        >
+        @click="toggleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarTop">
+    <div class="collapse navbar-collapse" id="navbarTop" :class="{show: isNavOpen}">
       <ul class="navbar-nav mr-auto">
 
       </ul>
       <ul class="nav navbar-nav">
-        <router-link to="/entrar" tag="li" class="nav-item" active-class="active">
+        <router-link to="/entrar" tag="li" v-if="!estaLogado" class="nav-item" active-class="active">
           <a class="nav-link">Entrar</a>
         </router-link>
-        <li  class="li-pointer nav-item">
-          <a  class="nav-link">Sair {{ usuarioEmail }}</a>
+        <li v-if="estaLogado"  class="li-pointer nav-item">
+          <a @click="sair" class="nav-link">Sair {{ usuarioEmail }}</a>
         </li>
         <router-link to="/cadastrar" tag="li" class="nav-item" active-class="active">
           <a class="nav-link">Cadastrar</a>
@@ -42,23 +42,40 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data() {
     return {
-
+        isNavOpen: false
     }
   },
   computed: {
-    ...mapGetters(['isLoggedIn', 'AtualUsuario']),
+    ...mapGetters(['estaLogado', 'atualUsuario']),
     usuarioEmail() {
-      return this.isLoggedIn ? this.AtualUsuario.email : ''
+      return this.estaLogado ? this.atualUsuario.email : ''
     }
+  },
+  methods: {
+      ...mapActions(['sair']),
+      toggleNavbar() {
+          this.isNavOpen = !this.isNavOpen 
+      }
   }
 }
 </script>
 
 <style>
 
+.navbar-btn a {
+  color: white;
+}
+
+.li-pointer {
+  cursor: pointer;
+}
+
+.li-pointer:hover {
+  cursor: pointer;
+}
 </style>

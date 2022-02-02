@@ -13,6 +13,19 @@ const config = {
 
 firebase.initializeApp(config)
 
+export function firebaseListener(func) {
+    firebase.auth().onAuthStateChanged(function(usuario) {
+        if (usuario) {
+            console.log("Usuario logado com sucesso", usuario);
+            func(true, usuario)
+        } else {
+            console.log("Usuário não entrou, falha", usuario);
+        }
+    }, function(error) {
+        console.log(error);
+    })
+}
+
 
 export const referencia = firebase.database().ref()
 export const firebaseAuth = firebase.auth

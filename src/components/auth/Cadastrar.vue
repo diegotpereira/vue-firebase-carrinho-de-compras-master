@@ -27,8 +27,8 @@
           />
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-success" style="width: 100%" :disabled="isLoading">
-            <i v-if="isLoading" class="fa fa-spinner fa-spin" />
+          <button type="submit" class="btn btn-success" style="width: 100%">
+            <i  class="fa fa-spinner fa-spin" />
             Cadastrar
           </button>
         </div>
@@ -55,13 +55,13 @@ export default {
         return {
             email: '',
             password: '',
-            isLoading: false
+            //isLoading: false
         } 
     },
     methods: {
         ...mapActions(['cadastrarSeuEmail']),
         onSubmit() {
-            this.isLoading = true
+            //this.isLoading = true
 
             let dado = {
                 email: this.email,
