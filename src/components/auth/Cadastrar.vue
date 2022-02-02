@@ -49,8 +49,30 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
+    data() {
+        return {
+            email: '',
+            password: '',
+            isLoading: false
+        } 
+    },
+    methods: {
+        ...mapActions(['cadastrarSeuEmail']),
+        onSubmit() {
+            this.isLoading = true
 
+            let dado = {
+                email: this.email,
+                password: this.password
+            }
+            this.cadastrarSeuEmail(dado).then(() => {
+                this.$router.push({ name: 'paginaprincipal'})
+
+            })
+        }
+    }
 }
 </script>
 
