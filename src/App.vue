@@ -21,8 +21,8 @@
     <footer class="navbar-default navbar-bottom navbar-dark bg-dark">
       <div class="container-fluid">
             <p class="text-center nav-bar mb-0">Verifique o Repositório em 
-              <a href="https://github.com/ittus/vuejs-firebase-shopping-cart" target="_blank">
-              https://github.com/ittus/vuejs-firebase-shopping-cart
+              <a href="https://github.com/diegotpereira/vue-firebase-carrinho-de-compras-master" target="_blank">
+              https://github.com/diegotpereira/vue-firebase-carrinho-de-compras-master
             </a></p>
       </div>
     </footer>
