@@ -20,17 +20,17 @@
 
       </ul>
       <ul class="nav navbar-nav">
-        <router-link to="/login" tag="li" class="nav-item" active-class="active">
+        <router-link to="/entrar" tag="li" class="nav-item" active-class="active">
           <a class="nav-link">Entrar</a>
         </router-link>
         <li  class="li-pointer nav-item">
           <a  class="nav-link">Sair </a>
         </li>
-        <router-link to="/register" tag="li" class="nav-item" active-class="active">
+        <router-link to="/cadastrar" tag="li" class="nav-item" active-class="active">
           <a class="nav-link">Cadastrar</a>
         </router-link>
         <li>
-          <router-link to="/cart" class="btn btn-success navbar-btn" tag="button">
+          <router-link to="/carrinho" class="btn btn-success navbar-btn" tag="button">
             Confira <span class="badge badge-light"></span>
           </router-link>
         </li>

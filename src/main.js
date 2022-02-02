@@ -2,13 +2,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router';
 import './assets/styles/app.scss'
+import { routes } from './routes'
 
 Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 
 const router = new VueRouter({
-  mode: 'history'
+  mode: 'history',
+  routes 
 })
 
 new Vue({
