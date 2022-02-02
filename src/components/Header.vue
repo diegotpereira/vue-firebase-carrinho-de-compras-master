@@ -24,7 +24,7 @@
           <a class="nav-link">Entrar</a>
         </router-link>
         <li  class="li-pointer nav-item">
-          <a  class="nav-link">Sair </a>
+          <a  class="nav-link">Sair {{ usuarioEmail }}</a>
         </li>
         <router-link to="/cadastrar" tag="li" class="nav-item" active-class="active">
           <a class="nav-link">Cadastrar</a>
@@ -42,8 +42,20 @@
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex'
 
+export default {
+  data() {
+    return {
+
+    }
+  },
+  computed: {
+    ...mapGetters(['isLoggedIn', 'AtualUsuario']),
+    usuarioEmail() {
+      return this.isLoggedIn ? this.AtualUsuario.email : ''
+    }
+  }
 }
 </script>
 
