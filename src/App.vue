@@ -40,11 +40,12 @@ export default {
     appHeader: Header
   },
   methods: {
-      ...mapActions(['buscarListaDeProdutos'])
+      ...mapActions(['getCarrinhoCompras','buscarListaDeProdutos'])
   },
   created() {
-    //  let uid = this.$store.getters.atualUsuario.uid
+    let uid = this.$store.getters.atualUsuario.uid
     this.buscarListaDeProdutos()
+	this.getCarrinhoCompras({uid, atualCarrinho: this.$store.getters.carrinhoItemLista})
   }
 }
 </script>

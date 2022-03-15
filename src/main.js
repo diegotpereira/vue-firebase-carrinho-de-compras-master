@@ -27,10 +27,11 @@ new Vue({
     // .$mount('#app')
 
 
-function authStatusChange(loggedIn, usuario) {
+function authStatusChange(estaLogado, usuario) {
     if (store) {
         store.commit('AUTH_STATUS_CHANGE')
-        console.log(loggedIn);
-        console.log(usuario);
+        if (usuario) {
+            store.dispatch('getCarrinhoCompras', { uid: usuario.uid, atualCarrinho: store.getters.carrinhoItemLista })
+        }
     }
 }

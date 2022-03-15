@@ -14,7 +14,7 @@
         <p class="col-6 lead">${{ item.preco }}</p>
         <p class="col-6">
           <button class="btn btn-success pull-right" :disabled="item.quantidade === 0" @click="addItem">
-            Add to cart
+            Add Carrinho
           </button>
         </p>
       </div>
