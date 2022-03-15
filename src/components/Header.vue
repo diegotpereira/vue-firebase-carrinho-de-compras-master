@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <router-link to="#" class="navbar-brand mr-auto">Online Store</router-link>
+    <router-link to="/" class="navbar-brand mr-auto">Online Store</router-link>
     <button
         class="navbar-toggler"
         type="button"
@@ -26,7 +26,7 @@
         <li v-if="estaLogado"  class="li-pointer nav-item">
           <a @click="sair" class="nav-link">Sair {{ usuarioEmail }}</a>
         </li>
-        <router-link to="/cadastrar" tag="li" class="nav-item" active-class="active">
+        <router-link to="/cadastrar" tag="li" v-if="!estaLogado" class="nav-item" active-class="active">
           <a class="nav-link">Cadastrar</a>
         </router-link>
         <li>
@@ -65,7 +65,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lange="sass">
 
 .navbar-btn a {
   color: white;

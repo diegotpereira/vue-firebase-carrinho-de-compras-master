@@ -32,22 +32,50 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue';
+import { mapActions } from 'vuex'
 export default {
   name: 'App',
   components: {
     // HelloWorld
     appHeader: Header
+  },
+  methods: {
+      ...mapActions(['buscarListaDeProdutos'])
+  },
+  created() {
+    //  let uid = this.$store.getters.atualUsuario.uid
+    this.buscarListaDeProdutos()
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+ #reset-store-panel {
+    position: fixed; bottom: 0px; right: 0px;
+  }
+
+  body, .sticky-footer-wrapper {
+     min-height:100vh;
+  }
+
+  .flex-fill {
+     flex:1 1 auto;
+  }
+  footer {
+    height: 40px;
+    color: #666;
+    padding: 10px 0 10px 0;
+    font-size: 85%;
+  }
+  footer a {
+    color: #999;
+  }
+  footer a:hover {
+    color: #efefef;
+  }
+  @media (max-width: 576px) {
+    footer {
+      height: 50px;
+    }
+  }
 </style>

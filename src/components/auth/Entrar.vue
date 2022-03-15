@@ -27,8 +27,8 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-success" style="width: 100%" :disabled="isLoading">
-            <i v-if="isLoading" class="fa fa-spinner fa-spin" />
+          <button type="submit" class="btn btn-success" style="width: 100%" :disabled="estaCarregando">
+            <i v-if="estaCarregando" class="fa fa-spinner fa-spin" />
             Entrar
           </button>
         </div>
@@ -57,14 +57,14 @@ export default {
         return {
             email: '',
             password: '',
-            isLoading: false
+            estaCarregando: false
             
         }
     },
     methods: {
         ...mapActions(['entrarComEmail']),
         entrar() {
-            this.isLoading = true
+            this.estaCarregando = true
             let dado = {
                 email: this.email,
                 password: this.password
@@ -76,7 +76,7 @@ export default {
             }).catch((error)=> {
                 console.log(error);
             }).then(()=> {
-                this.isLoading = false
+                this.estaCarregando = false
             })
         }
     }

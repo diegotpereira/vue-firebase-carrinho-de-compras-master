@@ -55,13 +55,13 @@ export default {
         return {
             email: '',
             password: '',
-            //isLoading: false
+            //estaCarregando: false
         } 
     },
     methods: {
         ...mapActions(['cadastrarSeuEmail']),
         onSubmit() {
-            //this.isLoading = true
+            //this.estaCarregando = true
 
             let dado = {
                 email: this.email,
