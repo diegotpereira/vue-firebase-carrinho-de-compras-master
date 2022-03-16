@@ -11,14 +11,14 @@
 				</div>
 			</div>
 		</td>
-		<td data-th="preco"> {{ carrinhoItem }}</td>
-		<td data-th="quantidade">
+		<td data-th="Preco"> {{ carrinhoItem.preco }}</td>
+		<td data-th="Quantidade">
 			<input type="number" class="form-control text-center"
 				:value="carrinhoItem.quantidade"
 				@input="atualizarQuantidade"
 				min="0">
 		</td>
-		<td data-th="subtotal" class="text-center">R$ {{ subtotal }}</td>
+		<td data-th="Subtotal" class="text-center">R$ {{ subtotal }}</td>
 		<td class="actions" data-th="">
 			<button class="btn btn-danger btn-sm" @click="removerItem"><i class="fa fa-trash-o"></i></button>
 		</td>
@@ -27,8 +27,6 @@
 
 <script>
 import { mapActions } from 'vuex'
-
-
 export default {
 	props: ['carrinhoItem'],
 	computed: {
@@ -39,7 +37,18 @@ export default {
 	methods: {
 		...mapActions(['atualizarCarrinho', 'removerItemNoCarrinho']),
 		removerItem() {
-			
+			let vm = this 
+			this.removerItemCarro({
+				item: vm.carrinhoItem
+			})
+		},
+		atualizarQuantidade(event) {
+			let vm = this
+			this.atualizarCarrinho({
+				item: vm.carrinhoItem,
+				quantidade: parseInt(event.target.value),
+				isAdd: false
+			})
 		}
 	}
 }

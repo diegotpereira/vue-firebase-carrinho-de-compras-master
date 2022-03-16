@@ -27,7 +27,8 @@
 				<tr>
 					<td>
 						<button class="btn btn-warning" @click="salvarCarrinhoComprasLocal">
-							<i class="fa fa-angle-left"></i>Salvar e continuar comprando
+							<i class="fa fa-angle-left"></i>  
+							Salvar e continuar comprando
 						</button>
 					</td>
 					<td colspan="2" class="d-none d-sm-table-cell"></td>
