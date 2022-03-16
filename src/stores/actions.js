@@ -45,7 +45,7 @@ export function getCarrinhoCompras({ commit }, { uid, atualCarrinho }) {
     }
 }
 export function salvarCarrinhoCompras(_, { uid, carrinhoItemLista }) {
-    return referencia.child("carrinho/" + uid).set(carrinhoItemLista);
+    return referencia.child('carrinho/' + uid).set(carrinhoItemLista);
 }
 export function salvarNaTransacao(_, { uid, carrinhoItemLista }) {
     let novaTransacaoChave = referencia.child('transacoes').push().key;
