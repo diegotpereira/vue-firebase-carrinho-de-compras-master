@@ -11,7 +11,7 @@
 				</tr>
 			</thead>
 
-			<transition-group name="list-shopping-cart">
+			<transition-group name="list-shopping-cart" tag="tbody">
 				<app-carrinho-item
 				v-for="carrinhoItem in carrinhoItemLista"
 				:carrinhoItem="carrinhoItem"
@@ -36,9 +36,9 @@
 					</td>
 					<td class="px-0">
 						<button class="btn btn-success" @click="verificar">
-							<span class="text-nowwrap">
+							<span class="text-nowrap">
 								Confirmar
-								<i class="fa-fa-angle-right d-inline"></i>
+								<i class="fa fa-angle-right d-inline"></i>
 							</span>
 						</button>
 					</td>
@@ -57,7 +57,7 @@ export default {
 			'estaLogado',
 			'produtos',
 			'atualUsuario',
-			'carrinhoValor'
+			'carrinhoValor',
 		]),
 	},
 	components: {
