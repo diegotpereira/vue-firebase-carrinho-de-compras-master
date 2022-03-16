@@ -1,14 +1,14 @@
 const state = {
     mensagemGrupo: {
-        messagemClasse: '',
+        mensagemClasse: '',
         mensagem: '',
         timeoutEvent: null,
     }
 }
 const mutations = {
-    'ADD_MESSAGE' (state, { mensagem, messagemClasse }) {
+    'ADD_MENSAGEM' (state, { mensagem, mensagemClasse }) {
         state.mensagemGrupo = {
-            messagemClasse,
+            mensagemClasse,
             mensagem
         }
         if (state.timeoutEvent) {
@@ -16,7 +16,7 @@ const mutations = {
         }
         state.timeoutEvent = setTimeout(function() {
             state.mensagemGrupo = {
-                messagemClasse: '',
+                mensagemClasse: '',
                 mensagem: ''
             }
         }, 5000)

@@ -2,7 +2,7 @@
   <div class="d-flex flex-column sticky-footer-wrapper">
     <main class="flex-fill">
       <app-header></app-header>
-      <!-- <message-component></message-component> -->
+      <mensagem-componente></mensagem-componente>
       <div class="container mt-3">
           <div class="row">
             <div class="col-md-12">
@@ -33,11 +33,13 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue';
 import { mapActions } from 'vuex'
+import MensagemComponente from './components/common/MensagemComponente.vue';
 export default {
   name: 'App',
   components: {
     // HelloWorld
-    appHeader: Header
+    appHeader: Header,
+    MensagemComponente
   },
   methods: {
       ...mapActions(['getCarrinhoCompras','buscarListaDeProdutos'])

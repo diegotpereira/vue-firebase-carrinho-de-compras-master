@@ -8,11 +8,11 @@ export const atualizarCarrinho = ({
     if (isAdd) {
         let mensagem_obj = {
             mensagem: `Adicionado ${item.titulo} ao carrinho com sucesso`,
-            messagemClasse: 'success',
+            mensagemClasse: 'success',
             autoClose: true
 
         }
-        commit('ADD_MESSAGE', mensagem_obj)
+        commit('ADD_MENSAGEM', mensagem_obj)
     }
 }
 

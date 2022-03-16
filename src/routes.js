@@ -2,7 +2,7 @@ import Cadastrar from './components/auth/Cadastrar.vue'
 import Entrar from './components/auth/Entrar.vue'
 import Loja from './components/Loja.vue'
 import CarrinhoCompras from './components/CarrinhoDeCompras.vue'
-
+import ProdutoDetalhes from './components/ProdutoDetalhes.vue'
 export const routes = [
 
     {
@@ -10,7 +10,11 @@ export const routes = [
         component: Loja,
         name: 'paginaprincipal'
     },
-
+    {
+        path: '/produto/:id',
+        component: ProdutoDetalhes,
+        name: 'produto'
+    },
     {
         path: '/cadastrar',
         component: Cadastrar,
