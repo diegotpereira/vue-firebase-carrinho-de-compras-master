@@ -6,12 +6,12 @@
     </div>
     <div class="card-body">
       <router-link :to="'/produto/' + item.id" tag="h5" class="card-title"><a>{{ item.titulo }}</a></router-link>
-      <h6 class="card-subtitle mb-2 remain">{{ item.quantidade }} left in stock</h6>
+      <h6 class="card-subtitle mb-2 remain">{{ item.quantidade }} quantidade(s) em estoque</h6>
 
       <p class="card-text truncate">{{ item.descricao | curtaDescricao}}</p>
 
       <div class="row">
-        <p class="col-6 lead">${{ item.preco }}</p>
+        <p class="col-6 lead">R${{ item.preco }}</p>
         <p class="col-6">
           <button class="btn btn-success pull-right" :disabled="item.quantidade === 0" @click="addItem">
             Add Carrinho

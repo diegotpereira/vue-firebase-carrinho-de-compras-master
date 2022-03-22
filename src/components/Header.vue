@@ -31,7 +31,7 @@
         </router-link>
         <li>
           <router-link to="/carrinho" class="btn btn-success navbar-btn" tag="button">
-            Confira <span class="badge badge-light"></span>
+            Confira <span class="badge badge-light">{{ numItems }} (R$ {{ carrinhoValor }}) </span>
           </router-link>
         </li>
       </ul>
@@ -51,7 +51,14 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['estaLogado', 'atualUsuario']),
+    ...mapGetters(['estaLogado', 'atualUsuario', 'carrinhoValor', 'carrinhoItemLista']),
+	numItems() {
+		return this.carrinhoItemLista.reduce((total, item) => {
+			total += item.quantidade;
+
+			return total
+		}, 0)
+	},
     usuarioEmail() {
       return this.estaLogado ? this.atualUsuario.email : ''
     }
